@@ -39,3 +39,49 @@ pngx-login .card, .login-card { border-top: 4px solid #880000 !important; box-sh
 .dropdown-menu { background-color: #1a1d1f !important; border-color: #2A3A4A !important; }
 .dropdown-item { color: #E0E0E0 !important; }
 .dropdown-item:hover { background-color: rgba(136,0,0,0.15) !important; color: #ffffff !important; }
+
+/* Esconder logo Paperless e substituir pelo logo Stratechna */
+pngx-logo svg { display: none !important; }
+pngx-logo::after {
+  content: '';
+  display: block;
+  background-image: url('/static/custom/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 180px;
+  height: 50px;
+}
+
+/* Esconder POR PAPERLESS-NGX */
+.byline { display: none !important; }
+
+/* Substituir logo grande (canto direito) */
+pngx-logo svg.logo { display: none !important; }
+pngx-logo::after {
+  content: '';
+  display: block;
+  background-image: url('/static/custom/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center left;
+  width: 200px;
+  height: 55px;
+}
+
+/* Substituir icone pequeno navbar (canto esquerdo) */
+pngx-app-frame nav svg:not(.logo) { display: none !important; }
+pngx-app-frame nav .navbar-brand::before {
+  content: '';
+  display: inline-block;
+  background-image: url('/static/custom/favicon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* Esconder POR PAPERLESS-NGX */
+.byline { display: none !important; }
