@@ -1,0 +1,41 @@
+/*
+ * Stratechna Vault - Branding Custom CSS
+ * Paperless-ngx v2.20+ (Bootstrap 5 + Angular)
+ * Marco 2026
+ */
+
+:root {
+  --pngx-primary: #880000;
+  --pngx-primary-darker: #660000;
+  --bs-primary: #880000;
+  --bs-primary-rgb: 136, 0, 0;
+  --bs-link-color: #CC0000;
+  --bs-link-hover-color: #880000;
+}
+nav.navbar, .navbar { background-color: #111314 !important; border-bottom: 2px solid #880000 !important; }
+pngx-sidebar, pngx-app-frame .sidebar, .list-group-flush { background-color: #161a1d !important; }
+.list-group-item { background-color: transparent !important; color: #E0E0E0 !important; border-color: #2A3A4A !important; }
+.list-group-item:hover { background-color: rgba(136,0,0,0.15) !important; color: #ffffff !important; }
+.list-group-item.active { background-color: #880000 !important; border-color: #880000 !important; color: #ffffff !important; }
+.btn-primary { background-color: #880000 !important; border-color: #880000 !important; color: #ffffff !important; }
+.btn-primary:hover, .btn-primary:focus { background-color: #660000 !important; border-color: #660000 !important; }
+.btn-outline-primary { color: #880000 !important; border-color: #880000 !important; }
+.btn-outline-primary:hover { background-color: #880000 !important; color: #ffffff !important; }
+.badge.bg-primary { background-color: #880000 !important; }
+a { color: #CC0000; }
+a:hover { color: #880000; }
+.card { border-top: 3px solid #880000 !important; background-color: #1a1d1f !important; border-color: #2A3A4A !important; }
+.card:hover { box-shadow: 0 4px 16px rgba(136,0,0,0.2) !important; }
+body { background-color: #111314 !important; color: #E0E0E0 !important; }
+pngx-login .card, .login-card { border-top: 4px solid #880000 !important; box-shadow: 0 8px 32px rgba(136,0,0,0.25) !important; background-color: #1a1d1f !important; }
+.form-control:focus { border-color: #880000 !important; box-shadow: 0 0 0 0.2rem rgba(136,0,0,0.25) !important; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #111314; }
+::-webkit-scrollbar-thumb { background: #2a3a47; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #880000; }
+.table { color: #E0E0E0 !important; }
+.table thead th { background-color: #2a3a47 !important; color: #ffffff !important; border-color: #3D5163 !important; }
+.table td, .table th { border-color: #2A3A4A !important; }
+.dropdown-menu { background-color: #1a1d1f !important; border-color: #2A3A4A !important; }
+.dropdown-item { color: #E0E0E0 !important; }
+.dropdown-item:hover { background-color: rgba(136,0,0,0.15) !important; color: #ffffff !important; }
