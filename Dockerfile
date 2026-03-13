@@ -10,16 +10,23 @@ COPY branding/login_logo.jpg             /usr/src/paperless/src/documents/static
 COPY branding/stratechna-vault-icon.png  /usr/src/paperless/src/documents/static/custom/stratechna-vault-icon.png
 COPY branding/custom.css                 /tmp/custom.css
 
-# Substituir SVG Paperless no bundle Angular por path vazio (invisivel)
+# Substituir SVG Paperless por path vazio
 RUN for lang_dir in /usr/src/paperless/src/documents/static/frontend/*/; do \
       if [ -f "${lang_dir}main.js" ]; then \
-        sed -i 's|M194\.7,0C164\.22,70\.94,17\.64,79\.74,64\.55,194\.06[^"]*|M0 0|g' "${lang_dir}main.js" && \
+        sed -i 's|M194\.7,0C164\.22,70\.94,17\.64,79\.74,64\.55,194\.06[^"]*|M0 0|g' "${lang_dir}main.js"; \
+      fi; \
+    done
+
+# Injectar script JS para substituir SVG pelo icone Vault
+RUN for lang_dir in /usr/src/paperless/src/documents/static/frontend/*/; do \
+      if [ -f "${lang_dir}main.js" ]; then \
+        printf '%s' ';(function(){function injectVaultIcon(){var brand=document.querySelector("a.navbar-brand");if(!brand){setTimeout(injectVaultIcon,100);return;}var svg=brand.querySelector("svg");if(!svg){return;}var img=document.createElement("img");img.src="/static/custom/stratechna-vault-icon.png";img.style.width="32px";img.style.height="32px";img.style.borderRadius="4px";brand.replaceChild(img,svg);}document.addEventListener("DOMContentLoaded",injectVaultIcon);})();' >> "${lang_dir}main.js" && \
         gzip -k -9 -f "${lang_dir}main.js" && \
         brotli -f "${lang_dir}main.js" -o "${lang_dir}main.js.br"; \
       fi; \
     done
 
-# Injectar CSS de branding em todos os idiomas
+# Injectar CSS de branding
 RUN for lang_dir in /usr/src/paperless/src/documents/static/frontend/*/; do \
       if [ -f "${lang_dir}styles.css" ]; then \
         cat /tmp/custom.css "${lang_dir}styles.css" > /tmp/styles_branded.css && \
