@@ -1,87 +1,75 @@
 /*
  * Stratechna Vault - Branding Custom CSS
- * Paperless-ngx v2.20+ (Bootstrap 5 + Angular)
- * Marco 2026
+ * Versao final - Marco 2026
  */
 
-:root {
-  --pngx-primary: #880000;
-  --pngx-primary-darker: #660000;
-  --bs-primary: #880000;
-  --bs-primary-rgb: 136, 0, 0;
-  --bs-link-color: #CC0000;
+:root, [data-bs-theme=auto], [data-bs-theme=dark] {
+  --bs-primary: #C0392B;
+  --bs-primary-rgb: 192, 57, 43;
+  --bs-success: #C0392B;
+  --bs-success-rgb: 192, 57, 43;
+  --pngx-primary: #C0392B;
+  --bs-link-color: #C0392B;
   --bs-link-hover-color: #880000;
 }
-nav.navbar, .navbar { background-color: #111314 !important; border-bottom: 2px solid #880000 !important; }
-pngx-sidebar, pngx-app-frame .sidebar, .list-group-flush { background-color: #161a1d !important; }
-.list-group-item { background-color: transparent !important; color: #E0E0E0 !important; border-color: #2A3A4A !important; }
-.list-group-item:hover { background-color: rgba(136,0,0,0.15) !important; color: #ffffff !important; }
-.list-group-item.active { background-color: #880000 !important; border-color: #880000 !important; color: #ffffff !important; }
-.btn-primary { background-color: #880000 !important; border-color: #880000 !important; color: #ffffff !important; }
-.btn-primary:hover, .btn-primary:focus { background-color: #660000 !important; border-color: #660000 !important; }
-.btn-outline-primary { color: #880000 !important; border-color: #880000 !important; }
-.btn-outline-primary:hover { background-color: #880000 !important; color: #ffffff !important; }
-.badge.bg-primary { background-color: #880000 !important; }
-a { color: #CC0000; }
-a:hover { color: #880000; }
-.card { border-top: 3px solid #880000 !important; background-color: #1a1d1f !important; border-color: #2A3A4A !important; }
-.card:hover { box-shadow: 0 4px 16px rgba(136,0,0,0.2) !important; }
-body { background-color: #111314 !important; color: #E0E0E0 !important; }
-pngx-login .card, .login-card { border-top: 4px solid #880000 !important; box-shadow: 0 8px 32px rgba(136,0,0,0.25) !important; background-color: #1a1d1f !important; }
-.form-control:focus { border-color: #880000 !important; box-shadow: 0 0 0 0.2rem rgba(136,0,0,0.25) !important; }
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #111314; }
-::-webkit-scrollbar-thumb { background: #2a3a47; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #880000; }
-.table { color: #E0E0E0 !important; }
-.table thead th { background-color: #2a3a47 !important; color: #ffffff !important; border-color: #3D5163 !important; }
-.table td, .table th { border-color: #2A3A4A !important; }
-.dropdown-menu { background-color: #1a1d1f !important; border-color: #2A3A4A !important; }
-.dropdown-item { color: #E0E0E0 !important; }
-.dropdown-item:hover { background-color: rgba(136,0,0,0.15) !important; color: #ffffff !important; }
 
-/* Esconder logo Paperless e substituir pelo logo Stratechna */
-pngx-logo svg { display: none !important; }
-pngx-logo::after {
+body { background-color: #111314 !important; color: #E0E0E0 !important; }
+nav.navbar, .navbar { background-color: #111314 !important; border-bottom: 2px solid #3D5163 !important; }
+
+/* Icone esquerdo - SVG fica vazio, mostramos imagem no lugar */
+a.navbar-brand svg { visibility: hidden !important; width: 0 !important; margin: 0 !important; padding: 0 !important; }
+a.navbar-brand::before {
   content: '';
-  display: block;
-  background-image: url('/static/custom/logo.png');
+  display: inline-block;
+  background-image: url('/static/custom/stratechna-vault-icon.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 180px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
 }
 
-/* Esconder POR PAPERLESS-NGX */
+.list-group-item { background-color: transparent !important; color: #E0E0E0 !important; border-color: #2A3A4A !important; }
+.list-group-item:hover { background-color: rgba(61,81,99,0.3) !important; color: #ffffff !important; }
+.list-group-item.active { background-color: #3D5163 !important; border-color: #3D5163 !important; color: #ffffff !important; }
+.sidebar a.nav-link, .sidebar .nav-link { color: #E0E0E0 !important; }
+.nav-link.active, a.nav-link.active { color: #ffffff !important; }
+
+.btn-primary { background-color: #3D5163 !important; border-color: #3D5163 !important; color: #ffffff !important; }
+.btn-primary:hover { background-color: #2a3a47 !important; border-color: #2a3a47 !important; }
+.btn-outline-primary { color: #C0392B !important; border-color: #C0392B !important; }
+.btn-outline-primary:hover { background-color: #C0392B !important; color: #ffffff !important; }
+
+pngx-upload-file-widget button, pngx-upload-file-widget .btn { color: #C0392B !important; border-color: #C0392B !important; }
+pngx-upload-file-widget span { color: #C0392B !important; }
+
+.text-primary, .text-success, a.text-primary, a.text-success { color: #C0392B !important; }
+a { color: #C0392B; }
+a:hover { color: #880000; }
+
+.card { background-color: #1a1d1f !important; border-color: #2A3A4A !important; }
+.form-control:focus { border-color: #3D5163 !important; box-shadow: 0 0 0 0.2rem rgba(61,81,99,0.35) !important; }
+
+.table { color: #E0E0E0 !important; }
+.table thead th { background-color: #2a3a47 !important; color: #ffffff !important; border-color: #3D5163 !important; }
+.table td, .table th { border-color: #2A3A4A !important; }
+
+.dropdown-menu { background-color: #1a1d1f !important; border-color: #2A3A4A !important; }
+.dropdown-item { color: #E0E0E0 !important; }
+.dropdown-item:hover { background-color: rgba(61,81,99,0.3) !important; color: #ffffff !important; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #111314; }
+::-webkit-scrollbar-thumb { background: #2a3a47; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #3D5163; }
+
+pngx-logo img { content: url('/static/custom/logo.png') !important; max-height: 55px; width: auto; }
+
 .byline { display: none !important; }
 
-/* Substituir logo grande (canto direito) */
-pngx-logo svg.logo { display: none !important; }
-pngx-logo::after {
-  content: '';
-  display: block;
-  background-image: url('/static/custom/logo.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center left;
-  width: 200px;
-  height: 55px;
-}
+.alert-success { background-color: #1a1d1f !important; border-left: 3px solid #3D5163 !important; color: #E0E0E0 !important; }
+.alert-success *, .alert-success p, .alert-success h5 { color: #E0E0E0 !important; }
+.alert-success a { color: #C0392B !important; }
 
-/* Substituir icone pequeno navbar (canto esquerdo) */
-pngx-app-frame nav svg:not(.logo) { display: none !important; }
-pngx-app-frame nav .navbar-brand::before {
-  content: '';
-  display: inline-block;
-  background-image: url('/static/custom/favicon.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 24px;
-  height: 24px;
-  margin-right: 6px;
-  vertical-align: middle;
-}
-
-/* Esconder POR PAPERLESS-NGX */
-.byline { display: none !important; }
+.badge.bg-primary, .badge.bg-success { background-color: #3D5163 !important; }
