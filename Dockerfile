@@ -10,6 +10,13 @@ COPY branding/login_logo.jpg             /usr/src/paperless/src/documents/static
 COPY branding/stratechna-vault-icon.png  /usr/src/paperless/src/documents/static/custom/stratechna-vault-icon.png
 COPY branding/custom.css                 /tmp/custom.css
 
+# Substituir "Paperless-ngx" por "Stratechna Vault" em todos os main.js
+RUN for lang_dir in /usr/src/paperless/src/documents/static/frontend/*/; do \
+      if [ -f "${lang_dir}main.js" ]; then \
+        sed -i 's/Paperless-ngx/Stratechna Vault/g' "${lang_dir}main.js"; \
+      fi; \
+    done
+
 # Injectar CSS de branding
 RUN for lang_dir in /usr/src/paperless/src/documents/static/frontend/*/; do \
       if [ -f "${lang_dir}styles.css" ]; then \
