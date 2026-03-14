@@ -10,6 +10,7 @@ COPY branding/favicon.png                /usr/src/paperless/src/documents/static
 COPY branding/login_logo.png             /usr/src/paperless/src/documents/static/custom/login_logo.png
 COPY branding/stratechna-vault-icon.png  /usr/src/paperless/src/documents/static/custom/stratechna-vault-icon.png
 COPY branding/custom.css                 /tmp/custom.css
+COPY branding/base.css                   /usr/src/paperless/src/documents/static/base.css
 
 # Substituir "Paperless-ngx" por "Stratechna Vault" em todos os main.js
 RUN for lang_dir in /usr/src/paperless/src/documents/static/frontend/*/; do \
